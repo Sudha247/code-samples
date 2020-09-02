@@ -1,0 +1,15 @@
+(executables
+ (names one_ref)
+ (modules one_ref))
+
+(executables
+ (names one_atomic)
+ (modules one_atomic))
+
+(executables
+ (names atomic_single)
+ (modules atomic_single))
+
+(executables
+ (names ref_single)
+ (modules ref_single))

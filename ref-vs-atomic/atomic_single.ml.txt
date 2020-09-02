@@ -1,0 +1,16 @@
+==29452== drd, a thread error detector
+==29452== Copyright (C) 2006-2017, and GNU GPL'd, by Bart Van Assche.
+==29452== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==29452== Command: _build/default/atomic_single.exe
+==29452== 
+==29452== Warning: client switching stacks?  SP change: 0x1ffefff9a0 --> 0x5a32b98
+==29452==          to suppress, use: --max-stackframe=137327595016 or greater
+==29452== Warning: client switching stacks?  SP change: 0x5a32b80 --> 0x1ffefff998
+==29452==          to suppress, use: --max-stackframe=137327595032 or greater
+==29452== Warning: client switching stacks?  SP change: 0x1ffefff9a0 --> 0x5a32b80
+==29452==          to suppress, use: --max-stackframe=137327595040 or greater
+==29452==          further instances of this message will not be shown.
+2
+==29452== 
+==29452== For counts of detected and suppressed errors, rerun with: -v
+==29452== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
