@@ -2,3 +2,4 @@
 *.exe
 *eventlog*
 *a.out
+*.merlin
