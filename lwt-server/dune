@@ -1,0 +1,11 @@
+(executable
+ (name echo)
+ (modules echo)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fib)
+ (modules fib)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
