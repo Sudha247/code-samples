@@ -9,3 +9,9 @@
  (modules fib)
  (libraries lwt lwt.unix)
  (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fibp)
+ (modules fibp)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
