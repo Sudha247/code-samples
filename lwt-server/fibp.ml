@@ -3,10 +3,16 @@ open Lwt.Infix
 
 let port = 2000
 
+let num_domains = try int_of_string Sys.argv.(1) with _ -> 4
+let counter = ref 0
+
+let _ = 
+  Lwt_preemptive.set_bounds(0, num_domains - 1)
+
 let create_socket port () = 
   let sock = Lwt_unix.socket PF_INET SOCK_STREAM 0 in 
   Lwt_unix.bind sock @@ ADDR_INET(Unix.inet_addr_loopback, port) >>= fun () ->
-  Lwt_unix.listen sock 10;
+  Lwt_unix.listen sock 100;
   return sock
 
 let recv ic = 
@@ -32,7 +38,13 @@ let detached oc =
 let rec main oc ic = 
   match%lwt recv ic with
   | Some msg -> 
-    detached oc msg >>= fun () -> main oc ic 
+    incr counter;
+    if !counter mod num_domains = 0 then begin
+      compute msg |> send_res oc; 
+      main oc ic 
+      end
+    else 
+      detached oc msg >>= fun () -> main oc ic 
   | None -> return_unit
 
 let serve connection =
