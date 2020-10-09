@@ -20,4 +20,4 @@ telnet localhost 1537
 
 ## Fib server
 
-Returns fibonacci number of input
+Returns fibonacci number of input. This has both a sequential version which is `fib.ml` and a parallel version `fibp.ml`. Client program with adjustable number of requests and clients is `client.ml`.
