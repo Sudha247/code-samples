@@ -1,0 +1,12 @@
+(executable
+ (name counter)
+ (modules counter))
+
+(executable
+ (name shared_counter)
+ (modules shared_counter lock )
+ (libraries domainslib))
+
+(executable
+ (name shared_counter_atomic)
+ (modules shared_counter_atomic))

@@ -3,3 +3,5 @@
 *eventlog*
 *a.out
 *.merlin
+*dune-project
+*perf.data*
