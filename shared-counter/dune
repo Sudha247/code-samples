@@ -10,3 +10,14 @@
 (executable
  (name shared_counter_atomic)
  (modules shared_counter_atomic))
+
+(executable
+ (name task_dist)
+ (modules task_dist)
+ (libraries domainslib unix))
+
+
+(executable
+ (name task_dist_pool)
+ (modules task_dist_pool)
+ (libraries domainslib unix))
