@@ -1,10 +1,3 @@
-(* TEST
-   flags += " -w a "
-   modules = "globrootsprim.c"
-*)
-let num_domains = try int_of_string Sys.argv.(1) with _ -> 4
-module C = Domainslib.Chan
-
 module type GLOBREF = sig
   type t
   val register: string -> t
@@ -82,22 +75,3 @@ let _ = young2old (); Gc.full_major ()
 external static2young : int * int -> (unit -> unit) -> int = "gb_static2young"
 let _ =
   assert (static2young (1, 1) Gc.full_major == 0x42)
-
-let c = C.make_bounded 0
-
-let wait () =
-  C.recv c |> ignore
-
-let _ =
-  let n = try int_of_string Sys.argv.(2) with _ -> 10000 in
-  let domains = Array.init (num_domains - 1) (fun _ -> Domain.spawn(wait)) in
-  print_string "Non-generational API\n";
-  TestClassic.test n;
-  print_newline();
-  print_string "Generational API\n";
-  TestGenerational.test n;
-  print_newline();
-  for i = 1 to (num_domains - 1) do
-    C.send c i
-  done;
-  Array.iter Domain.join domains
