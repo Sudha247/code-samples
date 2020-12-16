@@ -1,0 +1,4 @@
+(executable
+ (name globroots)
+ (libraries domainslib)
+ (foreign_stubs (language c) (names globrootsprim)))
