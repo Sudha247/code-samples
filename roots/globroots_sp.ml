@@ -1,5 +1,5 @@
 let num_domains = try int_of_string Sys.argv.(1) with _ -> 4
-let n = try int_of_string Sys.argv.(1) with _ -> 1000
+let n = try int_of_string Sys.argv.(2) with _ -> 1000
 module C = Domainslib.Chan
 
 open Globroots
@@ -11,6 +11,8 @@ let wait () =
 
 let _ =
   let domains = Array.init (num_domains - 1) (fun _ -> Domain.spawn(wait)) in
+  young2old (); Gc.full_major ();
+  assert (static2young (1, 1) Gc.full_major == 0x42);
   print_string "Non-generational API\n";
   TestClassic.test n;
   print_newline();

@@ -1,9 +1,10 @@
-let num_domains = try int_of_string Sys.argv.(2) with _ -> 4
-let n = try int_of_string Sys.argv.(1) with _ -> 1000
+let num_domains = try int_of_string Sys.argv.(1) with _ -> 4
+let n = (try int_of_string Sys.argv.(2) with _ -> 1000) / num_domains
 
 open Globroots
 
 let work () =
+  young2old (); Gc.full_major ();
   print_string "Non-generational API\n";
   TestClassic.test n;
   print_newline();

@@ -70,8 +70,4 @@ module TestClassic = Test(Classic)
 module TestGenerational = Test(Generational)
 
 external young2old : unit -> unit = "gb_young2old"
-let _ = young2old (); Gc.full_major ()
-
 external static2young : int * int -> (unit -> unit) -> int = "gb_static2young"
-let _ =
-  assert (static2young (1, 1) Gc.full_major == 0x42)
