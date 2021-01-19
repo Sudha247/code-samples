@@ -1,9 +1,0 @@
-(executable
- (name globroots_sp)
- (modules globroots_sp)
- (libraries domainslib globroots))
-
-(executable
- (name globroots_mp)
- (modules globroots_mp)
- (libraries globroots))

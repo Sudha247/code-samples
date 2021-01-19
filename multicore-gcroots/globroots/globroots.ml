@@ -64,6 +64,24 @@ module Test(G: GLOBREF) = struct
       change();
       print_string "."; flush stdout
     done
+    
+    let young_roots () = 
+      match Random.int 4 with
+      | 0 -> 
+        Gc.minor ()
+      | 1 | 2 -> 
+        let i = Random.int size in
+        G.set a.(i) (Int.to_string i)
+      | _ ->
+        let i = Random.int size in
+        G.remove a.(i);
+        a.(i) <- G.register (Int.to_string i)
+    
+    let test_young n =
+      for _ = 1 to n do
+        change();
+        print_string "."; flush stdout
+      done
 end
 
 module TestClassic = Test(Classic)
