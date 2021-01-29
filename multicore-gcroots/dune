@@ -18,5 +18,23 @@
  (modules globroots_young)
  (libraries globroots))
 
-(alias (name multibench_parallel)
-  (deps globroots_seq.exe globroots_sp.exe globroots_mp.exe))
+(executable
+ (name globroots_generational_register)
+ (modules globroots_generational_register)
+ (libraries globroots))
+
+(executable
+ (name globroots_classic_register)
+ (modules globroots_classic_register)
+ (libraries globroots))
+
+
+(executable
+ (name globroots_generational_register_mp)
+ (modules globroots_generational_register_mp)
+ (libraries globroots))
+
+(executable
+ (name globroots_classic_register_mp)
+ (modules globroots_classic_register_mp)
+ (libraries globroots))
