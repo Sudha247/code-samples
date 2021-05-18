@@ -17,6 +17,12 @@
  (preprocess (pps lwt_ppx)))
 
 (executable
+ (name test_rmain)
+ (modules test_rmain)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
  (name client)
  (modules client)
  (libraries lwt lwt.unix)
