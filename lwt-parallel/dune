@@ -1,0 +1,23 @@
+(executable
+ (name fib)
+ (modules fib)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fibp)
+ (modules fibp)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name client)
+ (modules client)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name test_detach_main)
+ (modules test_detach_main)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
