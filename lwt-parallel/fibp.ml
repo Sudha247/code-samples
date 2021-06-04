@@ -1,13 +1,13 @@
 open Lwt
 open Lwt.Infix
 
-let port = 2000
+let port = 2001
 
 let num_domains = try int_of_string Sys.argv.(1) with _ -> 4
 let counter = ref 0
 
 let _ =
-  Lwt_domain.set_bounds(0, num_domains - 1)
+  Lwt_domain.set_bounds num_domains
 
 let create_socket port () =
   let sock = Lwt_unix.socket PF_INET SOCK_STREAM 0 in
@@ -26,6 +26,7 @@ let send_res oc res =
   Lwt_io.write_line oc res |> Lwt.ignore_result
 
 let compute v =
+  Printf.printf "%d\n" (Domain.self() :> int);
   try
     let n = int_of_string v in
     string_of_int @@ fib n

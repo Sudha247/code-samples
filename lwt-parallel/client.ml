@@ -1,8 +1,8 @@
 open Lwt.Infix 
 
-let fibserver = Lwt_unix.ADDR_INET(Unix.inet_addr_of_string "127.0.0.1" , 2000)
+let fibserver = Lwt_unix.ADDR_INET(Unix.inet_addr_of_string "127.0.0.1" , 2001)
 
-let ip_val = "45"
+let ip_val = "42"
 
 let num_clients = try int_of_string Sys.argv.(1) with _ -> 10
 let num_req = try int_of_string Sys.argv.(2) with _ -> 10

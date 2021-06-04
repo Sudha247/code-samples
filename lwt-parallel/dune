@@ -21,3 +21,19 @@
  (modules test_detach_main)
  (libraries lwt lwt.unix)
  (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fib_bench_parallel)
+ (modules fib_bench_parallel)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fib_bench_preemptive)
+ (modules fib_bench_preemptive)
+ (libraries lwt lwt.unix)
+ (preprocess (pps lwt_ppx)))
+
+(executable
+ (name fib_bench_sequential)
+ (modules fib_bench_sequential))
