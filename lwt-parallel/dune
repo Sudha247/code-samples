@@ -37,3 +37,9 @@
 (executable
  (name fib_bench_sequential)
  (modules fib_bench_sequential))
+
+(executables
+ (names hash_parallel)
+ (modules hash_parallel)
+ (libraries mirage-crypto mirage-crypto-rng mirage-crypto-rng.lwt
+   lwt lwt.unix))
