@@ -1,0 +1,9 @@
+(executable
+ (name eval_perf)
+ (modules eval_perf)
+ (libraries unix data-encoding domainslib))
+
+(executable
+ (name eval_bin)
+ (modules eval_bin)
+ (libraries unix data-encoding domainslib))
