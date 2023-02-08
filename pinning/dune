@@ -1,0 +1,9 @@
+(executable
+ (name pin_domain)
+ (modules pin_domain )
+ (libraries processor))
+
+(executable
+ (name no_pin)
+ (modules no_pin)
+ (libraries processor))
