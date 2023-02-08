@@ -1,0 +1,4 @@
+(executable
+ (name eval_compute)
+ (modules eval_compute )
+ (libraries tezos-crypto domainslib))
