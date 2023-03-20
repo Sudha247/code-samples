@@ -4,7 +4,7 @@ exception Undefined
 
 (* type resume_result = Resume_success | Resume_failure *)
 
-type 'a resumer = 'a -> 'a
+type 'a resumer = 'a -> int
 type _ Effect.t += Suspend : ('a resumer -> bool) -> 'a Effect.t
 
 
