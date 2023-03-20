@@ -1,0 +1,5 @@
+(executable
+ (name test)
+ (modules safeLazy2 test))
+
+; eio eio_main eio_luv
