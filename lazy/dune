@@ -1,5 +1,17 @@
-(executable
- (name test)
- (modules safeLazy2 test))
 
-; eio eio_main eio_luv
+
+(executable
+ (name fiber_test)
+ (enabled_if (= %{system} "linux"))
+ (modules safeLazy2 fiber_test)
+ (libraries eio_linux eio_main unified_interface)
+ )
+
+
+; (executable
+ ;(name test)
+ ;(modules safeLazy2 test)
+ ;(libraries unix unified_interface)
+ ;)
+
+;eio eio_main eio_luv
